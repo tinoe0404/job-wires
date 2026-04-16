@@ -38,7 +38,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-2 group min-h-[56px] py-2">
               <div className={`relative flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-300 ${scrolled ? "w-48 h-12 sm:w-56 sm:h-14" : "w-56 h-16 sm:w-64 sm:h-[4.5rem]"}`}>
                 <Image
-                  src="/logo2.png"
+                  src="/logo3.png"
                   alt="Joshwires Logo"
                   fill
                   className="object-contain origin-left"

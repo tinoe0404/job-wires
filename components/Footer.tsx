@@ -16,7 +16,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
               <div className="relative w-[280px] h-20 flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-300">
                 <Image
-                  src="/logo2.png"
+                  src="/logo3.png"
                   alt="Joshwires Logo"
                   fill
                   className="object-contain object-left"
