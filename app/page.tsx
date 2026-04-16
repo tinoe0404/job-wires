@@ -1,162 +1,177 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { stats, testimonials } from "@/lib/data";
-import SectionTitle from "@/components/SectionTitle";
-import StatsCounter from "@/components/StatsCounter";
 import TestimonialCard from "@/components/TestimonialCard";
 import CTABanner from "@/components/CTABanner";
 import FadeIn from "@/components/ui/FadeIn";
 
 export default function HomePage() {
   return (
-    <>
-      {/* ======================== HERO SECTION ======================== */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-[var(--color-surface-muted)]">
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-100/40 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[var(--color-accent)]/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="bg-white">
+      {/* ═══════════════════════ HERO ═══════════════════════ */}
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-40 pb-32 overflow-hidden">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[var(--color-accent)]/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+        <div className="max-w-3xl w-full mx-auto px-6 relative z-10 text-center flex flex-col items-center">
           <FadeIn delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[var(--color-border)] mb-8 shadow-sm">
-              <span className="text-xl">🚀</span>
-              <span className="text-[var(--color-muted)] text-sm font-medium pr-1">
-                Premium Fencing Solutions <span className="text-[var(--color-primary)] ml-1">&rsaquo;</span>
-              </span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-muted)] border border-[var(--color-border)] mb-8">
+              <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
+              <span className="text-[var(--color-muted)] text-sm font-medium">Premium Fencing Solutions</span>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-sans text-[var(--color-primary)] font-extrabold tracking-tight leading-[1.1] mb-6 max-w-4xl">
-              Joshwires: Your partner in durable fencing solutions.
+            <h1 className="text-[clamp(2.25rem,5vw,4.5rem)] font-sans text-[var(--color-primary)] font-bold tracking-tight leading-[1.1] mb-6">
+              Your partner in durable
+              <br />
+              <span className="text-[var(--color-accent)]">fencing solutions.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <p className="text-lg md:text-xl text-[var(--color-muted)] font-sans font-normal leading-relaxed max-w-2xl mx-auto mb-10">
-              We offer different flavours of premium fencing that include diamond fence, field fence, and high-security razor wire for agricultural and industrial applications.
+            <p className="text-lg text-[var(--color-muted)] font-sans leading-relaxed max-w-xl mx-auto mb-12">
+              Premium diamond fence, field fence, and high-security razor wire for agricultural and industrial applications across Zimbabwe.
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.4} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-4">
+          <FadeIn delay={0.4} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/products"
-              className="w-full sm:w-auto bg-[var(--color-accent)] text-white font-sans font-medium px-8 py-3.5 text-base rounded-full hover:bg-green-600 transition-colors shadow-sm min-w-[200px]"
+              className="bg-[var(--color-primary)] text-white font-sans font-medium px-7 py-3 text-sm rounded-lg hover:bg-slate-800 transition-colors shadow-sm"
             >
-              Get Started
+              Browse Products
             </Link>
             <Link
               href="/contact"
-              className="w-full sm:w-auto text-[var(--color-primary)] bg-white border border-[var(--color-border)] font-sans font-semibold px-4 py-3.5 text-base rounded-full hover:border-slate-400 hover:shadow-sm shadow-sm transition-all flex items-center justify-center gap-2"
+              className="text-[var(--color-muted)] bg-white border border-[var(--color-border)] font-sans font-medium px-7 py-3 text-sm rounded-lg hover:border-slate-300 hover:text-[var(--color-primary)] transition-all flex items-center gap-2"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4" />
               Contact Us
             </Link>
           </FadeIn>
         </div>
-
       </section>
 
-      {/* ======================== PORTAL COMPRESSION SECTION ======================== */}
-      <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            badge="EXPLORE NAVIGATOR"
-            title="Everything you need, organized perfectly."
-            subtitle="Explore our products, view our previous installations, or get to know our team. Select your destination below."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            
-            {/* Products Portal */}
-            <FadeIn delay={0.1} className="flex flex-col h-full bg-[var(--color-surface-muted)] rounded-[2rem] border border-[var(--color-border)] hover:border-slate-300 transition-colors shadow-sm overflow-hidden group">
-              <div className="relative h-48 bg-white border-b border-[var(--color-border)] p-6 flex flex-col justify-end">
-                <div className="absolute top-6 left-6 w-12 h-12 rounded-full bg-white shadow-sm border border-[var(--color-border)] flex items-center justify-center">
-                  <span className="text-2xl">🚧</span>
-                </div>
-                <h3 className="text-2xl font-sans font-bold text-[var(--color-primary)] tracking-tight">Our Products</h3>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <p className="text-[var(--color-muted)] text-base mb-8">
-                  Browse our extensive catalogue of galvanized wire mesh, razor wires, diamond fences, and premium poles built to last.
+      {/* ═══════════════════════ STATS STRIP ═══════════════════════ */}
+      <section className="border-y border-slate-200 bg-[var(--color-surface-muted)]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat, index) => (
+              <FadeIn
+                key={stat.id}
+                delay={index * 0.05}
+                className={`py-14 lg:py-16 text-center ${
+                  index < stats.length - 1 ? "border-r border-slate-200" : ""
+                }`}
+              >
+                <p className="text-4xl md:text-5xl font-sans font-bold text-[var(--color-primary)] tracking-tight tabular-nums mb-2">
+                  {stat.value.toLocaleString()}{stat.suffix}
                 </p>
-                <Link href="/products" className="mt-auto inline-flex items-center gap-2 text-white bg-[var(--color-primary)] px-6 py-3 rounded-full font-sans font-medium text-sm hover:bg-slate-800 transition-colors w-fit">
-                  View Catalogue <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </FadeIn>
-
-            {/* Gallery Portal */}
-            <FadeIn delay={0.2} className="flex flex-col h-full bg-[var(--color-surface-muted)] rounded-[2rem] border border-[var(--color-border)] hover:border-slate-300 transition-colors shadow-sm overflow-hidden group">
-              <div className="relative h-48 bg-white border-b border-[var(--color-border)] p-6 flex flex-col justify-end">
-                <div className="absolute top-6 left-6 w-12 h-12 rounded-full bg-white shadow-sm border border-[var(--color-border)] flex items-center justify-center">
-                  <span className="text-2xl">📸</span>
-                </div>
-                <h3 className="text-2xl font-sans font-bold text-[var(--color-primary)] tracking-tight">Project Gallery</h3>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <p className="text-[var(--color-muted)] text-base mb-8">
-                  Check out our real-world installations spanning large industrial complexes, standard residential setups, and vast farms.
-                </p>
-                <Link href="/gallery" className="mt-auto inline-flex items-center gap-2 text-[var(--color-primary)] bg-white border border-[var(--color-border)] px-6 py-3 rounded-full font-sans font-medium text-sm hover:border-slate-400 transition-colors w-fit shadow-sm">
-                  Explore Installations <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </FadeIn>
-
-            {/* About Portal */}
-            <FadeIn delay={0.3} className="flex flex-col h-full bg-[var(--color-surface-muted)] rounded-[2rem] border border-[var(--color-border)] hover:border-slate-300 transition-colors shadow-sm overflow-hidden group">
-              <div className="relative h-48 bg-white border-b border-[var(--color-border)] p-6 flex flex-col justify-end">
-                <div className="absolute top-6 left-6 w-12 h-12 rounded-full bg-white shadow-sm border border-[var(--color-border)] flex items-center justify-center">
-                  <span className="text-2xl">🤝</span>
-                </div>
-                <h3 className="text-2xl font-sans font-bold text-[var(--color-primary)] tracking-tight">About Us</h3>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <p className="text-[var(--color-muted)] text-base mb-8">
-                  With over 15 years in the business, we are trusted nationwide. Learn more about our company philosophy and history.
-                </p>
-                <Link href="/about" className="mt-auto inline-flex items-center gap-2 text-[var(--color-primary)] font-sans font-medium hover:text-[var(--color-accent)] transition-colors w-fit">
-                  Read Our Story <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </FadeIn>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ======================== STATS ======================== */}
-      <StatsCounter stats={stats} />
-
-      {/* ======================== TESTIMONIALS ======================== */}
-      <section className="py-24 sm:py-32 bg-[var(--color-surface-muted)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            badge="TESTIMONIALS"
-            title="Trusted by experts"
-            subtitle="Don't just take our word for it. Hear from property developers, security consultants, and farm owners."
-          />
-
-          <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 md:pb-0 hide-scrollbar mt-16 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-pl-4 sm:scroll-pl-0">
-            {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id} className="min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center md:snap-align-none pb-4">
-                <TestimonialCard
-                  testimonial={testimonial}
-                  index={index}
-                />
-              </div>
+                <p className="text-sm text-[var(--color-muted)] font-medium">{stat.label}</p>
+              </FadeIn>
             ))}
-            {/* Edge spacer for mobile strict peaking */}
-            <div className="min-w-[10vw] flex-shrink-0 md:hidden" aria-hidden="true" />
           </div>
         </div>
       </section>
 
-      {/* ======================== CTA BANNER ======================== */}
+      {/* ═══════════════════════ NAVIGATE ═══════════════════════ */}
+      <section className="py-32 lg:py-40 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn className="mb-20">
+            <p className="text-sm font-semibold text-[var(--color-accent)] tracking-wider uppercase mb-4">Explore</p>
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-[var(--color-primary)] tracking-tight mb-5 max-w-md">
+              Everything you need, in one place.
+            </h2>
+            <p className="text-[var(--color-muted)] text-base max-w-lg leading-relaxed">
+              Browse our products, view real installations, or learn about our 15+ years of expertise.
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Products */}
+            <FadeIn delay={0.1}>
+              <Link href="/products" className="group block h-full">
+                <div className="h-full bg-[var(--color-surface-muted)] rounded-2xl border border-slate-200 p-10 hover:border-slate-300 hover:shadow-xl transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center mb-8">
+                    <span className="text-xl">🔩</span>
+                  </div>
+                  <h3 className="text-xl font-sans font-semibold text-[var(--color-primary)] mb-3">Our Products</h3>
+                  <p className="text-[var(--color-muted)] text-sm leading-relaxed mb-8">
+                    Galvanized wire mesh, razor wire, diamond fences, and premium steel poles built to last decades.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] group-hover:gap-3 transition-all">
+                    View catalogue <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            </FadeIn>
+
+            {/* Gallery */}
+            <FadeIn delay={0.15}>
+              <Link href="/gallery" className="group block h-full">
+                <div className="h-full bg-[var(--color-surface-muted)] rounded-2xl border border-slate-200 p-10 hover:border-slate-300 hover:shadow-xl transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-8">
+                    <span className="text-xl">📸</span>
+                  </div>
+                  <h3 className="text-xl font-sans font-semibold text-[var(--color-primary)] mb-3">Project Gallery</h3>
+                  <p className="text-[var(--color-muted)] text-sm leading-relaxed mb-8">
+                    Real-world installations — industrial complexes, residential properties, and large-scale farms.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] group-hover:gap-3 transition-all">
+                    Explore projects <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            </FadeIn>
+
+            {/* About */}
+            <FadeIn delay={0.2}>
+              <Link href="/about" className="group block h-full">
+                <div className="h-full bg-[var(--color-surface-muted)] rounded-2xl border border-slate-200 p-10 hover:border-slate-300 hover:shadow-xl transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-8">
+                    <span className="text-xl">🤝</span>
+                  </div>
+                  <h3 className="text-xl font-sans font-semibold text-[var(--color-primary)] mb-3">About Us</h3>
+                  <p className="text-[var(--color-muted)] text-sm leading-relaxed mb-8">
+                    Over 15 years of expertise, trusted nationwide. Learn about our company values and history.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] group-hover:gap-3 transition-all">
+                    Read our story <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ TESTIMONIALS ═══════════════════════ */}
+      <section className="py-32 lg:py-40 bg-[var(--color-surface-muted)] border-y border-slate-200">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn className="mb-20">
+            <p className="text-sm font-semibold text-[var(--color-accent)] tracking-wider uppercase mb-4">Testimonials</p>
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-[var(--color-primary)] tracking-tight mb-5 max-w-md">
+              Trusted by industry leaders
+            </h2>
+            <p className="text-[var(--color-muted)] text-base max-w-lg leading-relaxed">
+              Hear from property developers, security consultants, and farm owners who rely on Joshwires.
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ CTA ═══════════════════════ */}
       <CTABanner />
-    </>
+    </div>
   );
 }
