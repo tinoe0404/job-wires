@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -35,12 +36,14 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group min-h-[44px]">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <span className="text-[var(--color-primary)] font-sans font-bold text-2xl tracking-tight flex items-center">
-                  J
-                  <span className="text-[var(--color-accent)] mx-[1px]">O</span>
-                  SHWIRES
-                </span>
+              <div className="relative w-40 h-10 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200">
+                <Image
+                  src="/logo1.png"
+                  alt="Joshwires Logo"
+                  fill
+                  className="object-contain mix-blend-multiply"
+                  priority
+                />
               </div>
             </Link>
 

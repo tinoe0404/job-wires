@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { companyInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -13,11 +14,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 pr-0 lg:pr-12">
             <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
-              <span className="text-[var(--color-primary)] font-sans font-bold text-2xl tracking-tight flex items-center">
-                J
-                <span className="text-[var(--color-accent)] mx-[1px]">O</span>
-                SHWIRES
-              </span>
+              <div className="relative w-48 h-12 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200">
+                <Image
+                  src="/logo1.png"
+                  alt="Joshwires Logo"
+                  fill
+                  className="object-contain mix-blend-multiply"
+                />
+              </div>
             </Link>
             <p className="text-[var(--color-muted)] text-base leading-relaxed mb-6">
               Premium wire mesh and fencing solutions for residential, commercial,
