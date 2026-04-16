@@ -45,9 +45,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable}`}>
-      <body className={`${inter.className} antialiased overflow-x-hidden selection:bg-[var(--color-accent)]/20 text-[var(--color-text)] bg-[var(--color-surface-muted)]`}>
+      <body className={`${inter.className} relative antialiased overflow-x-hidden selection:bg-[var(--color-accent)]/20 text-[var(--color-text)] bg-white`}>
+        {/* Global Grid Background */}
+        <div className="fixed inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] -z-20 pointer-events-none" />
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[var(--color-accent)]/5 rounded-full blur-[120px] -z-20 pointer-events-none" />
+
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen relative z-0">{children}</main>
         <Footer />
       </body>
     </html>

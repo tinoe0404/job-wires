@@ -9,12 +9,9 @@ import FadeIn from "@/components/ui/FadeIn";
 
 export default function HomePage() {
   return (
-    <div className="bg-white">
+    <div className="w-full">
       {/* ═══════════════════════ HERO ═══════════════════════ */}
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-40 pb-32 overflow-hidden">
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[var(--color-accent)]/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-3xl w-full mx-auto px-6 relative z-10 text-center flex flex-col items-center">
           <FadeIn delay={0.1}>
@@ -79,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════ NAVIGATE ═══════════════════════ */}
-      <section className="py-32 lg:py-40 bg-white">
+      <section className="py-32 lg:py-40">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn className="mb-20">
             <p className="text-sm font-semibold text-[var(--color-accent)] tracking-wider uppercase mb-4">Explore</p>

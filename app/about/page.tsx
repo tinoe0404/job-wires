@@ -26,8 +26,8 @@ export default function AboutPage() {
   return (
     <>
       {/* ======================== PAGE HEADER ======================== */}
-      <section className="pt-36 pb-16 bg-white border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="relative pt-36 pb-16 border-b border-slate-200 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div variants={fadeInUp} initial="hidden" animate="visible">
             <p className="text-sm font-semibold text-[var(--color-accent)] tracking-wider uppercase mb-3">About Us</p>
             <h1 className="text-3xl md:text-4xl font-sans font-bold text-[var(--color-primary)] tracking-tight mb-4">
@@ -41,7 +41,7 @@ export default function AboutPage() {
       </section>
 
       {/* ======================== COMPANY INTRO ======================== */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-lime/5 rounded-full blur-3xl -translate-y-1/2" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
