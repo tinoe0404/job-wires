@@ -4,7 +4,13 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
 
-export default function CTABanner() {
+interface CTABannerProps {
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+}
+
+export default function CTABanner({ title, subtitle, buttonText }: CTABannerProps = {}) {
   return (
     <section className="py-24 sm:py-32 bg-[var(--color-surface-muted)] relative px-4">
       <div className="max-w-5xl mx-auto relative z-10">
@@ -14,12 +20,12 @@ export default function CTABanner() {
 
           <FadeIn>
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-bold text-white tracking-tight mb-6 leading-tight max-w-2xl mx-auto">
-              Ready to secure your project at full speed?
+              {title || "Ready to secure your project at full speed?"}
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="text-lg md:text-xl text-slate-300 font-sans font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-              Get in touch with our team of technical experts to find the exact fencing specifications for your requirements today.
+              {subtitle || "Get in touch with our team of technical experts to find the exact fencing specifications for your requirements today."}
             </p>
           </FadeIn>
 
@@ -28,7 +34,7 @@ export default function CTABanner() {
               href="/contact"
               className="bg-[var(--color-accent)] text-white font-sans font-medium px-10 py-4 text-base rounded-full hover:bg-green-600 transition-all shadow-lg flex items-center justify-center gap-2 group"
             >
-              Get Started Now
+              {buttonText || "Get Started Now"}
             </Link>
           </FadeIn>
         </div>

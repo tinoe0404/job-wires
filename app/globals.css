@@ -70,4 +70,11 @@ body {
   color: var(--color-primary);
 }
 
+/* 10/10 Accessibility Standard - Global Focus Outline */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-accent);
+}
+
+
 /* Removed noise background for clean structural aesthetic */

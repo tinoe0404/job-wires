@@ -49,7 +49,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/contact"
-              className="w-full sm:w-auto text-[var(--color-primary)] font-sans font-semibold px-4 py-3.5 text-base hover:text-[var(--color-accent)] transition-colors flex items-center justify-center gap-2"
+              className="w-full sm:w-auto text-[var(--color-primary)] bg-white border border-[var(--color-border)] font-sans font-semibold px-4 py-3.5 text-base rounded-full hover:border-slate-400 hover:shadow-sm shadow-sm transition-all flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Contact Us
@@ -157,15 +157,17 @@ export default function HomePage() {
             subtitle="Don't just take our word for it. Hear from property developers, security consultants, and farm owners."
           />
 
-          <div className="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto snap-x snap-mandatory pb-8 md:pb-0 hide-scrollbar mt-16">
+          <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 md:pb-0 hide-scrollbar mt-16 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-pl-4 sm:scroll-pl-0">
             {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id} className="min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center">
+              <div key={testimonial.id} className="min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center md:snap-align-none pb-4">
                 <TestimonialCard
                   testimonial={testimonial}
                   index={index}
                 />
               </div>
             ))}
+            {/* Edge spacer for mobile strict peaking */}
+            <div className="min-w-[10vw] flex-shrink-0 md:hidden" aria-hidden="true" />
           </div>
         </div>
       </section>
