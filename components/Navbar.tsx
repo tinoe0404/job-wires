@@ -29,19 +29,19 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/90 backdrop-blur-md border-b border-[var(--color-border)] py-4" : "bg-transparent py-6"
+          scrolled ? "bg-white/90 backdrop-blur-md border-b border-[var(--color-border)] py-3" : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group min-h-[44px]">
-              <div className="relative w-40 h-10 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200">
+            <Link href="/" className="flex items-center gap-2 group min-h-[56px] py-2">
+              <div className={`relative flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-300 ${scrolled ? "w-48 h-12 sm:w-56 sm:h-14" : "w-56 h-16 sm:w-64 sm:h-[4.5rem]"}`}>
                 <Image
-                  src="/logo1.png"
+                  src="/logo2.png"
                   alt="Joshwires Logo"
                   fill
-                  className="object-contain mix-blend-multiply"
+                  className="object-contain origin-left"
                   priority
                 />
               </div>
