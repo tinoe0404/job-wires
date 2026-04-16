@@ -161,7 +161,7 @@ export default function ContactPage() {
               <div id="map" className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
                 <div className="bg-gray-100 h-[300px] flex items-center justify-center relative">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.1160984895!2d30.928!3d-17.824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a4e706b17161%3A0x2238593869767a39!2sHarare%2C%20Zimbabwe!5e0!3m2!1sen!2s!4v1700000000000"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15268.0!2d25.845!3d-17.932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x194ee850bcd3db3b%3A0xe05e4e0e2e2dbb85!2sVictoria%20Falls%2C%20Zimbabwe!5e0!3m2!1sen!2s!4v1700000000000"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

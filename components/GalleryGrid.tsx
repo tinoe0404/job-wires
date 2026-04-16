@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
@@ -13,6 +13,18 @@ interface GalleryGridProps {
 
 export default function GalleryGrid({ images }: GalleryGridProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedImage]);
 
   return (
     <>

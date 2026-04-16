@@ -185,7 +185,7 @@ export const companyInfo = {
   tagline: "For All Your Fencing Solutions",
   phone1: "+263779975775",
   phone2: "+263773161258",
-  email: "info@joshwires.co.zw",
-  address: "Harare, Zimbabwe",
+  email: "joshuamabunu@icloud.com",
+  address: "434 Miles Road Industrial Side, Victoria Falls, Zimbabwe",
   whatsapp: "263779975775",
 };
