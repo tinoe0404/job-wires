@@ -81,10 +81,10 @@ export default function ContactPage() {
               <motion.div
                 key={card.title}
                 variants={staggerItem}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-lime/20 transition-all duration-500 text-center"
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-blue/20 transition-all duration-500 text-center"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-lime/20 to-lime-light/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <card.icon className="w-6 h-6 text-lime" />
+                <div className="w-14 h-14 bg-gradient-to-br from-blue/20 to-blue-light/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <card.icon className="w-6 h-6 text-blue" />
                 </div>
                 <h3 className="text-lg font-bold text-charcoal mb-2">
                   {card.title}
@@ -99,7 +99,7 @@ export default function ContactPage() {
                 {card.cta && card.href && (
                   <a
                     href={card.href}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-lime hover:text-lime-light transition-colors duration-300"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-blue hover:text-blue-light transition-colors duration-300"
                   >
                     {card.cta}
                     <ArrowUpRight className="w-3 h-3" />
@@ -192,10 +192,10 @@ export default function ContactPage() {
                     <a
                       key={phone}
                       href={`tel:${phone}`}
-                      className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-lime/5 hover:border-lime/20 border border-transparent transition-all duration-300 group"
+                      className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-blue/5 hover:border-blue/20 border border-transparent transition-all duration-300 group"
                     >
-                      <div className="w-10 h-10 bg-lime/10 rounded-lg flex items-center justify-center group-hover:bg-lime/20 transition-colors duration-300">
-                        <Phone className="w-4 h-4 text-lime" />
+                      <div className="w-10 h-10 bg-blue/10 rounded-lg flex items-center justify-center group-hover:bg-blue/20 transition-colors duration-300">
+                        <Phone className="w-4 h-4 text-blue" />
                       </div>
                       <div>
                         <p className="text-charcoal font-semibold text-sm">

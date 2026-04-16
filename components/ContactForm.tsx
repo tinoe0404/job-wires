@@ -33,7 +33,7 @@ export default function ContactForm() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-charcoal text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lime/30 focus:border-lime transition-all duration-300";
+    "w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-charcoal text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue/30 focus:border-blue transition-all duration-300";
 
   return (
     <motion.form
@@ -140,7 +140,7 @@ export default function ContactForm() {
         className={`w-full py-4 px-6 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
           formState === "sent"
             ? "bg-green-500 text-white"
-            : "bg-gradient-to-r from-lime to-lime-light text-navy hover:shadow-lg hover:shadow-lime/25 hover:-translate-y-0.5"
+            : "bg-gradient-to-r from-blue to-blue-light text-white hover:shadow-lg hover:shadow-blue/25 hover:-translate-y-0.5"
         } disabled:opacity-70 disabled:cursor-not-allowed`}
       >
         {formState === "idle" && (

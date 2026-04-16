@@ -14,11 +14,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 pr-0 lg:pr-12">
             <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
-              <div className="relative w-[280px] h-20 flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-300">
+              <div className="relative w-[160px] h-12 flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-300">
                 <Image
                   src="/logo3.png"
                   alt="Joshwires Logo"
                   fill
+                  sizes="160px"
                   className="object-contain object-left"
                 />
               </div>

@@ -36,13 +36,15 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group min-h-[56px] py-2">
-              <div className={`relative flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-300 ${scrolled ? "w-48 h-12 sm:w-56 sm:h-14" : "w-56 h-16 sm:w-64 sm:h-[4.5rem]"}`}>
+              <div className={`relative flex items-center justify-center transform group-hover:scale-[1.02] transition-transform duration-300 ${scrolled ? "w-32 h-8 sm:w-36 sm:h-10" : "w-36 h-10 sm:w-44 sm:h-12"}`}>
                 <Image
                   src="/logo3.png"
                   alt="Joshwires Logo"
                   fill
+                  sizes="(max-width: 640px) 144px, 176px"
                   className="object-contain origin-left"
                   priority
+                  loading="eager"
                 />
               </div>
             </Link>

@@ -69,7 +69,7 @@ export default function ProductsPage() {
                 title: "Galvanized Steel",
                 description:
                   "All our wire products are hot-dipped galvanized for maximum corrosion resistance and extended lifespan. Built to withstand the harshest conditions.",
-                gradient: "from-lime/20 to-lime-light/10",
+                gradient: "from-blue/20 to-blue-light/10",
               },
               {
                 title: "Rigorous Testing",
@@ -81,7 +81,7 @@ export default function ProductsPage() {
                 title: "Industry Standards",
                 description:
                   "Our products comply with regional and international fencing standards. You can trust that your installation will be safe, legal, and durable.",
-                gradient: "from-lime/20 to-blue/10",
+                gradient: "from-blue/20 to-blue/10",
               },
             ].map((feature) => (
               <motion.div
@@ -92,7 +92,7 @@ export default function ProductsPage() {
                 <div
                   className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6`}
                 >
-                  <div className="w-3 h-3 bg-lime rounded-full" />
+                  <div className="w-3 h-3 bg-blue rounded-full" />
                 </div>
                 <h3 className="text-lg font-bold text-charcoal mb-3">
                   {feature.title}
