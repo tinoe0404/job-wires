@@ -57,23 +57,6 @@ export default function HomePage() {
           </FadeIn>
         </div>
 
-        {/* Hero Image */}
-        <FadeIn delay={0.6} className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 relative z-10">
-          <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden bg-white shadow-xl border border-[var(--color-border)]">
-            <div className="absolute top-0 left-0 right-0 h-12 bg-white border-b border-[var(--color-border)] flex items-center gap-2 px-4 shadow-sm z-10">
-              <div className="w-3 h-3 rounded-full bg-red-400" />
-              <div className="w-3 h-3 rounded-full bg-amber-400" />
-              <div className="w-3 h-3 rounded-full bg-green-400" />
-            </div>
-            <Image
-              src="/images/hero-bg.png"
-              alt="Premium fencing installation"
-              fill
-              className="object-cover mt-12"
-              priority
-            />
-          </div>
-        </FadeIn>
       </section>
 
       {/* ======================== PORTAL COMPRESSION SECTION ======================== */}
