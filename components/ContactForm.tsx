@@ -14,16 +14,33 @@ export default function ContactForm() {
     subject: "",
     message: "",
   });
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("sending");
-    // Simulate form submission
-    setTimeout(() => {
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
       setFormState("sent");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      setTimeout(() => setFormState("idle"), 3000);
-    }, 1500);
+      setTimeout(() => setFormState("idle"), 4000);
+    } catch (err: unknown) {
+      setFormState("idle");
+      setError(err instanceof Error ? err.message : "Failed to send. Please try again.");
+    }
   };
 
   const handleChange = (
@@ -133,6 +150,12 @@ export default function ContactForm() {
           className={`${inputClasses} resize-none`}
         />
       </div>
+
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 text-red-600 text-sm rounded-xl border border-red-100">
+          {error}
+        </div>
+      )}
 
       <button
         type="submit"

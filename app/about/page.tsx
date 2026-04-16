@@ -62,17 +62,7 @@ export default function AboutPage() {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue to-blue-light rounded-xl flex items-center justify-center">
-                    <Award className="w-6 h-6 text-navy" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-black text-charcoal">500+</p>
-                    <p className="text-gray-500 text-sm">Projects Done</p>
-                  </div>
-                </div>
-              </div>
+
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue/10 rounded-2xl -z-10" />
             </motion.div>
 
