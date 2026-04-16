@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeInUp } from "@/lib/animations";
+import FadeIn from "@/components/ui/FadeIn";
 
 interface SectionTitleProps {
   badge?: string;
@@ -19,13 +18,7 @@ export default function SectionTitle({
   light = false,
 }: SectionTitleProps) {
   return (
-    <motion.div
-      variants={fadeInUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      className={`mb-12 md:mb-16 ${centered ? "text-center" : ""}`}
-    >
+    <FadeIn className={`mb-12 md:mb-16 ${centered ? "text-center" : ""}`}>
       {badge && (
         <span className="inline-block px-4 py-1.5 bg-lime/10 text-lime text-xs font-semibold uppercase tracking-widest rounded-full mb-4 border border-lime/20">
           {badge}
@@ -47,6 +40,6 @@ export default function SectionTitle({
           {subtitle}
         </p>
       )}
-    </motion.div>
+    </FadeIn>
   );
 }

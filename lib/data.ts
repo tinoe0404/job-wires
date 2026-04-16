@@ -117,7 +117,7 @@ export const testimonials: Testimonial[] = [
 export const stats: Stat[] = [
   { id: "1", value: 500, suffix: "+", label: "Projects Completed" },
   { id: "2", value: 15, suffix: "+", label: "Years Experience" },
-  { id: "3", value: 1000, suffix: "+", label: "Happy Clients" },
+  { id: "3", value: 200, suffix: "+", label: "Happy Clients" },
   { id: "4", value: 7, suffix: "", label: "Product Categories" },
 ];
 

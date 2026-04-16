@@ -40,67 +40,67 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-navy/95 backdrop-blur-xl shadow-2xl shadow-black/20 py-3"
+            ? "bg-black/70 backdrop-blur-md shadow-2xl shadow-black/20 py-3"
             : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group min-h-[44px] min-w-[44px]">
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-lime to-lime-light rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-navy font-black text-lg">J</span>
+                <div className="w-10 h-10 bg-[var(--color-accent)] rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-[var(--color-primary)] font-display font-bold text-xl">J</span>
                 </div>
-                <div className="absolute -inset-1 bg-gradient-to-br from-lime/20 to-lime-light/20 rounded-lg blur-sm group-hover:blur-md transition-all duration-300" />
               </div>
               <div className="flex flex-col">
-                <span className="text-white font-bold text-xl tracking-tight leading-none">
-                  JOSH<span className="text-lime">WIRES</span>
+                <span className="text-white font-display font-bold text-xl tracking-tight leading-none">
+                  JOSH<span className="text-[var(--color-accent)]">WIRES</span>
                 </span>
-                <span className="text-gray-400 text-[10px] tracking-[0.2em] uppercase leading-none mt-0.5">
+                <span className="text-white/60 text-[10px] tracking-[0.2em] font-body uppercase leading-none mt-0.5">
                   Fencing Solutions
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
+                  className={`relative px-4 py-2 font-body text-sm font-bold transition-colors duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
                     pathname === link.href
-                      ? "text-lime"
-                      : "text-gray-300 hover:text-white"
+                      ? "text-white"
+                      : "text-white/70 hover:text-white"
                   }`}
                 >
                   {link.label}
                   {pathname === link.href && (
                     <motion.div
-                      layoutId="activeNav"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-lime to-lime-light rounded-full"
+                      layoutId="activeNavDot"
+                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                  <span className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300" />
                 </Link>
               ))}
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-4">
               <a
                 href={`tel:${companyInfo.phone1}`}
-                className="flex items-center gap-2 text-gray-300 hover:text-lime text-sm transition-colors duration-300"
+                className="flex items-center gap-2 text-white/80 hover:text-white text-sm font-semibold transition-colors duration-300 min-h-[44px] min-w-[44px]"
               >
-                <Phone className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                  <Phone className="w-3.5 h-3.5 text-[var(--color-accent)]" />
+                </div>
                 <span className="hidden xl:inline">{companyInfo.phone1}</span>
               </a>
               <Link
                 href="/contact"
-                className="bg-gradient-to-r from-lime to-lime-light text-navy font-semibold px-5 py-2.5 rounded-xl text-sm hover:shadow-lg hover:shadow-lime/25 transform hover:-translate-y-0.5 transition-all duration-300"
+                className="bg-[var(--color-accent)] text-primary font-bold px-5 py-2.5 text-sm hover:bg-white transition-colors duration-300 inline-flex items-center justify-center min-h-[44px] min-w-[44px]"
               >
                 Get Quote
               </Link>
@@ -109,11 +109,13 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center text-white hover:text-lime transition-colors duration-300"
+              className="lg:hidden relative z-50 w-12 h-12 flex items-center justify-center text-white hover:text-[var(--color-accent)] transition-colors duration-300"
               aria-label="Toggle menu"
               id="mobile-menu-toggle"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <div className="bg-black/50 backdrop-blur-sm p-2 rounded-md">
+                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </div>
             </button>
           </div>
         </div>
@@ -127,51 +129,58 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-40 lg:hidden"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              initial={{ y: "-100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[300px] bg-navy z-40 lg:hidden shadow-2xl"
+              className="fixed top-0 left-0 right-0 max-h-[85vh] overflow-y-auto bg-[var(--color-primary)] z-40 lg:hidden shadow-2xl rounded-b-3xl border-b border-white/10"
             >
-              <div className="flex flex-col h-full pt-24 px-6 pb-8">
-                <div className="flex-1 space-y-1">
+              <div className="flex flex-col pt-24 px-6 pb-8">
+                <div className="flex-1 space-y-2">
                   {navLinks.map((link, index) => (
                     <motion.div
                       key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
                       <Link
                         href={link.href}
-                        className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-base font-medium transition-all duration-300 ${
+                        className={`flex items-center justify-between py-4 px-4 rounded-xl font-body text-base font-bold transition-all duration-300 min-h-[48px] ${
                           pathname === link.href
-                            ? "bg-lime/10 text-lime"
-                            : "text-gray-300 hover:bg-white/5 hover:text-white"
+                            ? "bg-white/10 text-white"
+                            : "text-white/60 hover:bg-white/5 hover:text-white"
                         }`}
                       >
                         {link.label}
-                        <ChevronRight className="w-4 h-4 opacity-40" />
+                        {pathname === link.href && (
+                          <div className="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full mr-2" />
+                        )}
+                        {pathname !== link.href && (
+                          <ChevronRight className="w-4 h-4 opacity-40" />
+                        )}
                       </Link>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="space-y-3 pt-6 border-t border-white/10">
+                <div className="space-y-4 pt-8 mt-4 border-t border-white/10">
                   <a
                     href={`tel:${companyInfo.phone1}`}
-                    className="flex items-center gap-3 text-gray-400 hover:text-lime transition-colors duration-300 text-sm px-4"
+                    className="flex items-center justify-center gap-3 text-white/80 hover:text-white transition-colors duration-300 text-sm font-bold min-h-[48px]"
                   >
-                    <Phone className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center">
+                      <Phone className="w-4 h-4 text-[var(--color-accent)]" />
+                    </div>
                     {companyInfo.phone1}
                   </a>
                   <Link
                     href="/contact"
-                    className="block bg-gradient-to-r from-lime to-lime-light text-navy font-semibold px-5 py-3 rounded-xl text-center text-sm"
+                    className="flex items-center justify-center bg-[var(--color-accent)] text-primary font-bold px-5 py-4 text-sm hover:bg-white transition-colors duration-300 min-h-[48px]"
                   >
                     Get a Free Quote
                   </Link>
