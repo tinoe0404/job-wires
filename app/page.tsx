@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <div className="w-full">
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative min-h-[90vh] flex flex-col items-start justify-center pt-40 pb-32 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-start justify-center pt-40 pb-32 overflow-hidden">
         <Image
           src="/images/hero_fence.png"
           alt="Premium galvanized chain link diamond fence rolls"
