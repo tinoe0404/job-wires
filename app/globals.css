@@ -25,6 +25,12 @@
   --color-border: #f1f5f9; /* Slate 100 Faint Border */
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --animate-marquee: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 :root {
@@ -51,11 +57,7 @@
   --color-border: #f1f5f9;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 html {
   scroll-behavior: smooth;

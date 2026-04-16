@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Phone, Package, ImageIcon, Users } from "lucide-react";
 import { stats, testimonials } from "@/lib/data";
-import TestimonialCard from "@/components/TestimonialCard";
 import CTABanner from "@/components/CTABanner";
 import FadeIn from "@/components/ui/FadeIn";
 
@@ -24,7 +23,7 @@ export default function HomePage() {
         {/* Gradient overlay to ensure text readability on the left */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent -z-10" />
 
-        <div className="max-w-7xl w-full mx-auto px-6 relative z-10 text-left flex flex-col items-start">
+        <div className="max-w-[90rem] w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-20 relative z-10 text-left flex flex-col items-start">
           <FadeIn delay={0.1}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-muted)] border border-[var(--color-border)] mb-8">
               <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
@@ -66,7 +65,7 @@ export default function HomePage() {
 
       {/* ═══════════════════════ STATS STRIP ═══════════════════════ */}
       <section className="border-y border-slate-200 bg-[var(--color-surface-muted)]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-10 md:px-16 lg:px-20">
           <div className="grid grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, index) => (
               <FadeIn
@@ -90,7 +89,7 @@ export default function HomePage() {
 
       {/* ═══════════════════════ TESTIMONIALS ═══════════════════════ */}
       <section className="py-32 lg:py-40 bg-[var(--color-surface-muted)] border-y border-slate-200">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-10 md:px-16 lg:px-20">
           <FadeIn className="mb-20">
             <p className="text-sm font-semibold text-[var(--color-accent)] tracking-wider uppercase mb-4">Testimonials</p>
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-[var(--color-primary)] tracking-tight mb-5 max-w-md">
@@ -101,9 +100,20 @@ export default function HomePage() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+        </div>
+
+        {/* Infinite Marquee */}
+        <div className="relative w-full flex overflow-hidden py-10 group mt-10 [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] md:[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex whitespace-nowrap items-center w-max animate-marquee hover:[animation-play-state:paused]">
+            {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, idx) => (
+              <div key={`${testimonial.id}-${idx}`} className="flex items-center mx-6 md:mx-12 group/item cursor-default transition-colors duration-300">
+                <span className="text-xl md:text-3xl text-[var(--color-primary)] font-medium font-sans px-4 group-hover/item:text-[var(--color-accent)] transition-colors duration-300">
+                  &ldquo;{testimonial.content}&rdquo;
+                </span>
+                <span className="text-lg md:text-xl text-[var(--color-muted)] font-serif italic pr-8 md:pr-12 border-r-2 border-slate-300">
+                  — {testimonial.name}
+                </span>
+              </div>
             ))}
           </div>
         </div>
