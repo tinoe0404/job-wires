@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
 import { stats, testimonials } from "@/lib/data";
 import TestimonialCard from "@/components/TestimonialCard";
@@ -11,9 +12,19 @@ export default function HomePage() {
   return (
     <div className="w-full">
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-40 pb-32 overflow-hidden">
+      <section className="relative min-h-[90vh] flex flex-col items-start justify-center pt-40 pb-32 overflow-hidden">
+        <Image
+          src="/images/hero_fence.png"
+          alt="Premium galvanized chain link diamond fence rolls"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right-top absolute inset-0 -z-20"
+        />
+        {/* Gradient overlay to ensure text readability on the left */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent -z-10" />
 
-        <div className="max-w-3xl w-full mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+        <div className="max-w-7xl w-full mx-auto px-6 relative z-10 text-left flex flex-col items-start">
           <FadeIn delay={0.1}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-surface-muted)] border border-[var(--color-border)] mb-8">
               <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
@@ -30,12 +41,12 @@ export default function HomePage() {
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <p className="text-lg text-[var(--color-muted)] font-sans leading-relaxed max-w-xl mx-auto mb-12">
+            <p className="text-lg text-[var(--color-muted)] font-sans leading-relaxed max-w-xl mb-12">
               Premium diamond fence, field fence, and high-security razor wire for agricultural and industrial applications across Zimbabwe.
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.4} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <FadeIn delay={0.4} className="flex flex-col sm:flex-row items-center sm:items-start justify-start gap-4">
             <Link
               href="/products"
               className="bg-[var(--color-primary)] text-white font-sans font-medium px-7 py-3 text-sm rounded-lg hover:bg-slate-800 transition-colors shadow-sm"
