@@ -2,24 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Shield,
-  Award,
-  Wrench,
-  Clock,
-  CheckCircle,
-  ChevronRight,
-} from "lucide-react";
-import {
-  fadeInUp,
-  fadeInLeft,
-  fadeInRight,
-  staggerContainer,
-  staggerItem,
-  scaleIn,
-} from "@/lib/animations";
+import { ArrowRight, Shield, Award, Wrench, Clock, CheckCircle, Phone } from "lucide-react";
 import { products, testimonials, stats, galleryImages } from "@/lib/data";
 import SectionTitle from "@/components/SectionTitle";
 import ProductCard from "@/components/ProductCard";
@@ -32,97 +15,84 @@ export default function HomePage() {
   return (
     <>
       {/* ======================== HERO SECTION ======================== */}
-      <section className="relative h-screen min-h-[600px] flex items-end pb-24 justify-start overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-bg.png"
-            alt="Premium fencing installation"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/50 to-transparent" />
-          <div className="absolute inset-0 noise-bg" />
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-[var(--color-surface-muted)]">
+        {/* Soft background glow similar to Fiscit */}
+        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-100/40 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[var(--color-accent)]/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+          <FadeIn delay={0.1}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[var(--color-border)] mb-8 shadow-sm">
+              <span className="text-xl">🚀</span>
+              <span className="text-[var(--color-muted)] text-sm font-medium pr-1">
+                Premium Fencing Solutions <span className="text-[var(--color-primary)] ml-1">&rsaquo;</span>
+              </span>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-sans text-[var(--color-primary)] font-extrabold tracking-tight leading-[1.1] mb-6 max-w-4xl">
+              Joshwires: Your partner in durable fencing solutions.
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <p className="text-lg md:text-xl text-[var(--color-muted)] font-sans font-normal leading-relaxed max-w-2xl mx-auto mb-10">
+              We offer different flavours of premium fencing that include diamond fence, field fence, and high-security razor wire for agricultural and industrial applications.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.4} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-4">
+            <Link
+              href="/products"
+              className="w-full sm:w-auto bg-[var(--color-accent)] text-white font-sans font-medium px-8 py-3.5 text-base rounded-full hover:bg-green-600 transition-colors shadow-sm min-w-[200px]"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto text-[var(--color-primary)] font-sans font-semibold px-4 py-3.5 text-base hover:text-[var(--color-accent)] transition-colors flex items-center justify-center gap-2"
+            >
+              <Phone className="w-5 h-5" />
+              Contact Us
+            </Link>
+          </FadeIn>
         </div>
 
-        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <FadeIn delay={0.2}>
-              <div className="flex items-center gap-4 mb-5 md:mb-6">
-                <div className="w-12 md:w-16 h-[2px] bg-[var(--color-accent)]" />
-                <span className="text-white/90 font-medium tracking-widest text-sm uppercase">
-                  For All Your Fencing Solutions
-                </span>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.4}>
-              <h1 className="text-[clamp(2.5rem,6vw,5.5rem)] font-display text-white font-bold leading-[1.05] tracking-tight mb-6">
-                Premium Wire Mesh & <br className="hidden md:block" /> Fencing Solutions
-              </h1>
-            </FadeIn>
-
-            <FadeIn delay={0.6}>
-              <p className="text-lg md:text-xl text-white/70 font-body leading-relaxed mb-10 max-w-xl">
-                Trusted experts in durable fencing products for residential,
-                commercial, agricultural, and industrial needs.
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.8} className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Link
-                href="/contact"
-                className="bg-[var(--color-accent)] text-primary font-bold px-8 py-4 text-base hover:bg-white transition-colors duration-300 inline-flex items-center justify-center min-h-[44px] min-w-[44px]"
-              >
-                Get Quote
-              </Link>
-              <Link
-                href="/contact"
-                className="text-white font-semibold px-8 py-4 border border-white/50 hover:border-white hover:bg-white/10 backdrop-blur-sm transition-colors duration-300 inline-flex items-center justify-center min-h-[44px] min-w-[44px]"
-              >
-                Contact Us
-              </Link>
-            </FadeIn>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <FadeIn delay={1.2} className="absolute bottom-10 left-4 sm:left-6 lg:left-8 z-10">
-          <div className="w-px h-16 bg-white/20 relative overflow-hidden">
-            <motion.div
-              animate={{ y: ["-100%", "200%"] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-              className="w-full h-1/2 bg-[var(--color-accent)] absolute top-0"
+        {/* Hero Image */}
+        <FadeIn delay={0.6} className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 relative z-10">
+          <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden bg-white shadow-xl border border-[var(--color-border)]">
+            <div className="absolute top-0 left-0 right-0 h-12 bg-white border-b border-[var(--color-border)] flex items-center gap-2 px-4 shadow-sm z-10">
+              <div className="w-3 h-3 rounded-full bg-red-400" />
+              <div className="w-3 h-3 rounded-full bg-amber-400" />
+              <div className="w-3 h-3 rounded-full bg-green-400" />
+            </div>
+            <Image
+              src="/images/hero-bg.png"
+              alt="Premium fencing installation"
+              fill
+              className="object-cover mt-12"
+              priority
             />
           </div>
         </FadeIn>
       </section>
 
       {/* ======================== ABOUT PREVIEW ======================== */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-lime/5 rounded-full blur-3xl -translate-y-1/2" />
-
+      <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <FadeIn>
-              <span className="inline-block px-4 py-1.5 bg-[var(--color-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-widest rounded-full mb-4 border border-[var(--color-border)]">
-                About Joshwires
-              </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-[var(--color-primary)] leading-tight mb-6">
-                Your Trusted Partner in{" "}
-                <span className="text-[var(--color-accent)]">
-                  Fencing Excellence
-                </span>
+              <h2 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-[var(--color-primary)] mb-6 leading-tight">
+                Your trusted partner in fencing excellence.
               </h2>
-              <p className="text-[var(--color-muted)] text-base leading-relaxed mb-6">
+              <p className="text-[var(--color-muted)] text-lg leading-relaxed mb-8">
                 With over 15 years of experience, Joshwires has established itself
                 as a leading provider of premium wire mesh and fencing solutions.
                 We serve residential, commercial, agricultural, and industrial
                 clients with products built to last.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-10">
                 {[
                   "Premium quality galvanized materials",
                   "Expert installation and guidance",
@@ -131,7 +101,7 @@ export default function HomePage() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 text-gray-600 text-sm"
+                    className="flex items-center gap-4 text-[var(--color-primary)] font-sans font-medium"
                   >
                     <CheckCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0" />
                     {item}
@@ -140,23 +110,23 @@ export default function HomePage() {
               </ul>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-primary font-semibold group hover:text-accent transition-colors duration-300 min-h-[44px] min-w-[44px]"
+                className="inline-flex items-center gap-2 text-white bg-[var(--color-primary)] rounded-full px-6 py-3 font-sans font-medium hover:bg-slate-800 transition-colors group"
               >
-                Learn More About Us
-                <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                Learn more about us
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
               </Link>
             </FadeIn>
 
             <FadeIn delay={0.2} className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/10">
-                <Image
-                  src="/images/gallery-5.png"
-                  alt="Joshwires team at work"
-                  width={600}
-                  height={450}
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+              <div className="relative aspect-square sm:aspect-[4/3] rounded-3xl overflow-hidden bg-[var(--color-surface-muted)] p-4 border border-[var(--color-border)]">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-sm">
+                  <Image
+                    src="/images/gallery-5.png"
+                    alt="Joshwires team at work"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -164,82 +134,79 @@ export default function HomePage() {
       </section>
 
       {/* ======================== PRODUCTS GRID ======================== */}
-      <section className="py-24 bg-gray-50 relative">
+      <section className="py-24 sm:py-32 bg-[var(--color-surface-muted)] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            badge="Our Products"
-            title="Premium Fencing Solutions"
+            badge="SOLUTIONS"
+            title="Start securing it today!"
             subtitle="Explore our comprehensive range of high-quality wire mesh and fencing products designed for every need."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             {products.slice(0, 6).map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
 
-          <FadeIn className="text-center mt-12">
+          <FadeIn className="text-center mt-16">
             <Link
               href="/products"
-              className="group inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-8 py-4 rounded-xl hover:bg-black transition-all duration-300 min-h-[44px] min-w-[44px]"
+              className="inline-flex bg-white text-[var(--color-primary)] font-sans font-medium px-8 py-3.5 text-base rounded-full shadow-sm border border-[var(--color-border)] hover:border-slate-300 hover:shadow-md transition-all gap-2"
             >
-              View All Products
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+              View all products
             </Link>
           </FadeIn>
         </div>
       </section>
 
       {/* ======================== WHY CHOOSE US ======================== */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue/5 rounded-full blur-3xl translate-y-1/2" />
-
+      <section className="py-24 sm:py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            badge="Why Choose Us"
-            title="Built on Quality & Trust"
+            badge="FEATURES"
+            title="Built on quality and trust"
             subtitle="We combine premium materials with expert craftsmanship to deliver fencing solutions that stand the test of time."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
             {[
               {
                 icon: Shield,
                 title: "Premium Quality",
                 description:
-                  "All our products are manufactured using the highest quality galvanized materials ensuring durability and longevity.",
+                  "All our products use the highest quality galvanized materials ensuring durability.",
               },
               {
                 icon: Award,
                 title: "Industry Expertise",
                 description:
-                  "With 15+ years in the industry, our team brings unmatched knowledge and experience to every project.",
+                  "With 15+ years in the industry, our team brings unmatched knowledge.",
               },
               {
                 icon: Wrench,
                 title: "Professional Service",
                 description:
-                  "From consultation to installation, we provide end-to-end professional service tailored to your needs.",
+                  "From consultation to installation, we provide end-to-end professional service.",
               },
               {
                 icon: Clock,
                 title: "Timely Delivery",
                 description:
-                  "We value your time. Our efficient logistics ensure your products are delivered on schedule, every time.",
+                  "We value your time. Our efficient logistics ensure products are delivered on schedule.",
               },
             ].map((item, index) => (
               <FadeIn
                 delay={index * 0.1}
                 key={item.title}
-                className="group text-center p-8 rounded-2xl bg-white border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-500"
+                className="flex flex-col p-8 rounded-3xl bg-[var(--color-surface-muted)] border border-[var(--color-border)] hover:-translate-y-1 transition-transform"
               >
-                <div className="w-14 h-14 bg-[var(--color-surface)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 rounded-full bg-white shadow-sm border border-[var(--color-border)] flex items-center justify-center mb-6">
                   <item.icon className="w-6 h-6 text-[var(--color-accent)]" />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--color-primary)] mb-2">
+                <h3 className="text-xl font-sans font-bold tracking-tight text-[var(--color-primary)] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                <p className="text-[var(--color-muted)] text-base leading-relaxed">
                   {item.description}
                 </p>
               </FadeIn>
@@ -249,31 +216,30 @@ export default function HomePage() {
       </section>
 
       {/* ======================== GALLERY PREVIEW ======================== */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 sm:py-32 bg-[var(--color-surface-muted)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            badge="Our Work"
-            title="Featured Projects"
+            badge="GALLERY"
+            title="Featured projects"
             subtitle="See our craftsmanship in action — from residential setups to large-scale commercial installations."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {galleryImages.slice(0, 3).map((image, index) => (
               <FadeIn
                 delay={index * 0.1}
                 key={image.id}
-                className="group relative h-72 rounded-2xl overflow-hidden"
+                className="group relative h-80 rounded-3xl overflow-hidden border border-[var(--color-border)] bg-white shadow-sm"
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <span className="inline-block px-3 py-1 bg-[var(--color-surface)] text-[var(--color-primary)] text-xs rounded-full backdrop-blur-sm shadow-sm">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent p-6 pt-12">
+                  <span className="text-sm font-medium text-white">
                     {image.category}
                   </span>
                 </div>
@@ -281,13 +247,13 @@ export default function HomePage() {
             ))}
           </div>
 
-          <FadeIn className="text-center mt-10">
+          <FadeIn className="text-center mt-12">
             <Link
               href="/gallery"
-              className="group inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold hover:text-[var(--color-accent)] transition-colors duration-300 min-h-[44px] min-w-[44px]"
+              className="inline-flex items-center gap-2 text-[var(--color-primary)] font-sans font-medium hover:text-[var(--color-accent)] transition-colors group"
             >
-              View Full Gallery
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+              View full gallery
+              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeIn>
         </div>
@@ -297,15 +263,15 @@ export default function HomePage() {
       <StatsCounter stats={stats} />
 
       {/* ======================== TESTIMONIALS ======================== */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 sm:py-32 bg-[var(--color-surface-muted)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
-            badge="Testimonials"
-            title="What Our Clients Say"
-            subtitle="Don't just take our word for it — hear from some of our satisfied customers."
+            badge="TESTIMONIALS"
+            title="Trusted by experts"
+            subtitle="Don't just take our word for it. Hear from property developers, security consultants, and farm owners."
           />
 
-          <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:pb-0 hide-scrollbar">
+          <div className="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto snap-x snap-mandatory pb-8 md:pb-0 hide-scrollbar mt-16">
             {testimonials.map((testimonial, index) => (
               <div key={testimonial.id} className="min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center">
                 <TestimonialCard

@@ -16,41 +16,39 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {images.map((image, index) => (
           <FadeIn
             delay={index * 0.1}
             key={image.id}
-            className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
+            className={`group relative overflow-hidden rounded-3xl border border-[var(--color-border)] cursor-pointer bg-white shadow-sm hover:shadow-md transition-shadow ${
               Number(image.id) % 3 === 1 ? "md:row-span-2" : ""
             }`}
             onClick={() => setSelectedImage(image)}
           >
             <div
               className={`relative w-full ${
-                Number(image.id) % 3 === 1 ? "h-80 md:h-full" : "h-64"
+                Number(image.id) % 3 === 1 ? "h-80 md:h-full min-h-[500px]" : "h-64"
               }`}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-end p-5">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-500">
-                  <ZoomIn className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="inline-block px-3 py-1 bg-[var(--color-surface)] text-[var(--color-primary)] text-xs rounded-full mb-2 backdrop-blur-sm shadow-sm font-bold tracking-wider uppercase">
+            {/* Soft Fiscit style gradient overlay */}
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-primary)]/80 via-[var(--color-primary)]/20 to-transparent p-6 pt-16 flex justify-between items-end">
+              <div>
+                <span className="inline-block px-3 py-1 bg-[var(--color-accent)] text-white text-xs font-sans font-medium rounded-full mb-2">
                   {image.category}
                 </span>
-                <p className="text-white text-sm font-medium">{image.alt}</p>
+                <p className="text-white text-sm font-sans font-medium">{image.alt}</p>
+              </div>
+              <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transform scale-90 group-hover:scale-100 transition-all duration-300 opacity-0 group-hover:opacity-100">
+                <ZoomIn className="w-5 h-5 text-white" />
               </div>
             </div>
           </FadeIn>
@@ -64,41 +62,53 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-4 cursor-pointer"
+            className="fixed inset-0 bg-[var(--color-surface-muted)]/90 backdrop-blur-md z-[60] flex items-center justify-center p-4 lg:p-12 cursor-pointer"
             onClick={() => setSelectedImage(null)}
           >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", damping: 25 }}
-              className="relative max-w-5xl max-h-[85vh] w-full aspect-video rounded-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                fill
-                className="object-contain"
-                sizes="(max-width: 1200px) 100vw, 1200px"
-              />
-            </motion.div>
-
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors duration-300"
+              className="absolute top-6 right-6 w-12 h-12 bg-white border border-[var(--color-border)] rounded-full flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-primary)] shadow-sm transition-all z-10 hover:scale-105"
               aria-label="Close lightbox"
-              id="close-lightbox"
             >
               <X className="w-6 h-6" />
             </button>
+            
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative max-w-6xl w-full h-[85vh] bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col cursor-default border border-[var(--color-border)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full h-full bg-[var(--color-surface-muted)] p-6">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-sm">
+                  <Image
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    fill
+                    className="object-contain"
+                    sizes="100vw"
+                  />
+                </div>
+              </div>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
-              <span className="inline-block px-4 py-1.5 bg-[var(--color-surface)] text-[var(--color-primary)] text-sm rounded-full backdrop-blur-sm shadow-sm font-bold tracking-wider uppercase">
-                {selectedImage.category}
-              </span>
-              <p className="text-white mt-2 text-sm">{selectedImage.alt}</p>
-            </div>
+              <div className="flex flex-col sm:flex-row items-center justify-between p-6 border-t border-[var(--color-border)] bg-white gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="inline-block px-4 py-1.5 bg-[var(--color-surface-muted)] text-[var(--color-muted)] text-sm font-sans font-medium rounded-full border border-[var(--color-border)]">
+                    {selectedImage.category}
+                  </span>
+                  <span className="text-[var(--color-primary)] font-sans font-semibold">
+                    {selectedImage.alt}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="px-6 py-2 bg-[var(--color-surface-muted)] text-[var(--color-primary)] font-medium rounded-full text-sm hover:bg-slate-200 transition-colors"
+                >
+                  Close Gallery
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

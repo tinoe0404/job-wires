@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const dmSerifDisplay = DM_Serif_Display({
-  weight: "400",
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-display",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-body",
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -51,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSerifDisplay.variable} ${dmSans.variable}`}>
-      <body className={`${dmSans.className} antialiased overflow-x-hidden`}>
+    <html lang="en" className={`${inter.variable}`}>
+      <body className={`${inter.className} antialiased overflow-x-hidden selection:bg-[var(--color-accent)]/20 text-[var(--color-text)] bg-[var(--color-surface-muted)]`}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

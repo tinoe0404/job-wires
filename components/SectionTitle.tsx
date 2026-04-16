@@ -3,43 +3,47 @@
 import FadeIn from "@/components/ui/FadeIn";
 
 interface SectionTitleProps {
-  badge?: string;
   title: string;
   subtitle?: string;
+  badge?: string;
   centered?: boolean;
-  light?: boolean;
 }
 
 export default function SectionTitle({
-  badge,
   title,
   subtitle,
+  badge,
   centered = true,
-  light = false,
 }: SectionTitleProps) {
   return (
-    <FadeIn className={`mb-12 md:mb-16 ${centered ? "text-center" : ""}`}>
+    <div className={`mb-12 md:mb-16 ${centered ? "text-center mx-auto" : ""}`}>
       {badge && (
-        <span className="inline-block px-4 py-1.5 bg-lime/10 text-lime text-xs font-semibold uppercase tracking-widest rounded-full mb-4 border border-lime/20">
-          {badge}
-        </span>
+        <FadeIn>
+          <div className={`mb-4`}>
+            <span className="text-[var(--color-accent)] font-sans text-sm font-bold tracking-widest uppercase">
+              {badge}
+            </span>
+          </div>
+        </FadeIn>
       )}
-      <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-tight ${
-          light ? "text-white" : "text-charcoal"
-        }`}
-      >
-        {title}
-      </h2>
+      
+      <FadeIn delay={0.1}>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-[var(--color-primary)] mb-6 leading-tight">
+          {title}
+        </h2>
+      </FadeIn>
+
       {subtitle && (
-        <p
-          className={`mt-4 text-base md:text-lg max-w-2xl leading-relaxed ${
-            centered ? "mx-auto" : ""
-          } ${light ? "text-gray-400" : "text-gray-500"}`}
-        >
-          {subtitle}
-        </p>
+        <FadeIn delay={0.2}>
+          <p
+            className={`text-lg text-[var(--color-muted)] font-sans font-normal leading-relaxed max-w-3xl ${
+              centered ? "mx-auto text-center" : "text-left"
+            }`}
+          >
+            {subtitle}
+          </p>
+        </FadeIn>
       )}
-    </FadeIn>
+    </div>
   );
 }
