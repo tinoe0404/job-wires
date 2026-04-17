@@ -4,9 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 import { fadeInUp } from "@/lib/animations";
+import SuccessPopup from "./ui/SuccessPopup";
 
 export default function ContactForm() {
   const [formState, setFormState] = useState<"idle" | "sending" | "sent">("idle");
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,6 +38,8 @@ export default function ContactForm() {
       }
 
       setFormState("sent");
+      setSubmittedEmail(formData.email);
+      setIsSuccessOpen(true);
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       setTimeout(() => setFormState("idle"), 4000);
     } catch (err: unknown) {
@@ -53,9 +58,15 @@ export default function ContactForm() {
     "w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-charcoal text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue/30 focus:border-blue transition-all duration-300";
 
   return (
-    <motion.form
-      variants={fadeInUp}
-      initial="hidden"
+    <>
+      <SuccessPopup 
+        isOpen={isSuccessOpen} 
+        onClose={() => setIsSuccessOpen(false)} 
+        email={submittedEmail} 
+      />
+      <motion.form
+        variants={fadeInUp}
+        initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       onSubmit={handleSubmit}
@@ -186,5 +197,6 @@ export default function ContactForm() {
         )}
       </button>
     </motion.form>
+    </>
   );
 }

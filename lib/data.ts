@@ -85,6 +85,22 @@ export const products: Product[] = [
     image: "/images/fencing-droppers.png",
     features: ["Precise Spacing", "Steel Construction", "Easy Install"],
   },
+  {
+    id: "custom-gates",
+    name: "Custom Metal Gates",
+    description:
+      "Durable and secure custom metal gate frames fabricated to your exact specifications. Perfect for farm, residential, or commercial entrances.",
+    image: "/images/new-gallery-3.jpg",
+    features: ["Custom Sizing", "Heavy Duty Frame", "Quality Welding"],
+  },
+  {
+    id: "decorative-doors",
+    name: "Decorative Metal Doors",
+    description:
+      "Beautifully crafted decorative metal door panels that combine aesthetic appeal with robust security for your property.",
+    image: "/images/new-gallery-4.jpg",
+    features: ["Aesthetic Design", "High Security", "Durable Finish"],
+  },
 ];
 
 export const testimonials: Testimonial[] = [
@@ -124,38 +140,38 @@ export const stats: Stat[] = [
 export const galleryImages: GalleryImage[] = [
   {
     id: "1",
-    src: "/images/gallery-1.png",
-    alt: "Commercial fence installation",
+    src: "/images/zimbabwe_fence.png",
+    alt: "Commercial fence installation in Zimbabwe",
     category: "Commercial",
   },
   {
     id: "2",
-    src: "/images/gallery-2.png",
-    alt: "Residential fencing project",
+    src: "/images/zimbabwe_residential.png",
+    alt: "Residential fencing project in Zimbabwe",
     category: "Residential",
   },
   {
     id: "3",
-    src: "/images/gallery-3.png",
-    alt: "High security perimeter fence",
+    src: "/images/zimbabwe_security.png",
+    alt: "High security perimeter fence in Zimbabwe",
     category: "Security",
   },
   {
     id: "4",
-    src: "/images/gallery-4.png",
-    alt: "Agricultural fence installation",
+    src: "/images/zimbabwe_agricultural.png",
+    alt: "Agricultural fence installation in Zimbabwe",
     category: "Agricultural",
   },
   {
     id: "5",
-    src: "/images/gallery-5.png",
-    alt: "Fence installation team at work",
+    src: "/images/zimbabwe_team.png",
+    alt: "Fence installation team at work in Zimbabwe",
     category: "Installation",
   },
   {
     id: "6",
-    src: "/images/gallery-6.png",
-    alt: "Sports complex fencing",
+    src: "/images/zimbabwe_sports.png",
+    alt: "Sports complex fencing in Zimbabwe",
     category: "Sports",
   },
   {
@@ -169,6 +185,30 @@ export const galleryImages: GalleryImage[] = [
     src: "/images/razor-wire.png",
     alt: "Razor wire security installation",
     category: "Security",
+  },
+  {
+    id: "9",
+    src: "/images/new-gallery-1.jpg",
+    alt: "Chain link fence rolls in stock",
+    category: "Products",
+  },
+  {
+    id: "10",
+    src: "/images/new-gallery-2.jpg",
+    alt: "Chain link fence installation in progress",
+    category: "Installation",
+  },
+  {
+    id: "11",
+    src: "/images/new-gallery-3.jpg",
+    alt: "Custom metal gate frame",
+    category: "Products",
+  },
+  {
+    id: "12",
+    src: "/images/new-gallery-4.jpg",
+    alt: "Decorative metal door panel",
+    category: "Products",
   },
 ];
 

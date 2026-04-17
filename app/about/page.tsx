@@ -55,8 +55,8 @@ export default function AboutPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/gallery-1.png"
-                  alt="Joshwires commercial installation"
+                  src="/images/zimbabwe_fence.png"
+                  alt="Joshwires commercial installation in Zimbabwe"
                   width={600}
                   height={450}
                   className="w-full h-auto object-cover"
