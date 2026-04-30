@@ -59,8 +59,8 @@ export default function ContactPage() {
               {
                 icon: Mail,
                 title: "Email Us",
-                details: [companyInfo.email],
-                href: `mailto:${companyInfo.email}`,
+                details: companyInfo.emails,
+                href: `mailto:${companyInfo.emails[0]}`,
                 cta: "Send Email",
               },
               {

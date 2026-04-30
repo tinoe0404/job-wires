@@ -94,14 +94,16 @@ export default function Footer() {
                   {companyInfo.phone1}
                 </a>
               </li>
-              <li>
-                <a
-                  href={`mailto:${companyInfo.email}`}
-                  className="text-[var(--color-muted)] text-base font-medium hover:text-[var(--color-accent)] transition-colors inline-block"
-                >
-                  {companyInfo.email}
-                </a>
-              </li>
+              {companyInfo.emails.map((email) => (
+                <li key={email}>
+                  <a
+                    href={`mailto:${email}`}
+                    className="text-[var(--color-muted)] text-base font-medium hover:text-[var(--color-accent)] transition-colors inline-block"
+                  >
+                    {email}
+                  </a>
+                </li>
+              ))}
               <li>
                 <span className="text-[var(--color-muted)] text-base font-medium block">
                   {companyInfo.address}

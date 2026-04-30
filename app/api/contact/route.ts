@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     // Email to Joshwires (notification of new enquiry)
     const ownerEmailPromise = transporter.sendMail({
       from: `"Joshwires Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_RECIPIENT || "joshuamabunu@icloud.com",
+      to: process.env.EMAIL_RECIPIENT || "info@joshwires.co.zw, joshuamabunu@icloud.com",
       replyTo: email,
       subject: `New Enquiry: ${subjectMap[subject] || subject} — from ${name}`,
       html: `
