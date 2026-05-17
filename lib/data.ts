@@ -101,6 +101,22 @@ export const products: Product[] = [
     image: "/images/new-gallery-4.jpg",
     features: ["Aesthetic Design", "High Security", "Durable Finish"],
   },
+  {
+    id: "steel-window-frames",
+    name: "Steel Window Frames",
+    description:
+      "Heavy-duty welded steel window frames with built-in burglar bars, painted in red oxide primer. Typical robust construction style used in Zimbabwe and Southern Africa.",
+    image: "/images/window-frame.png",
+    features: ["Built-in Burglar Bars", "Heavy Duty Steel", "Red Oxide Primer"],
+  },
+  {
+    id: "steel-door-frames",
+    name: "Steel Door Frames",
+    description:
+      "Heavy-duty welded steel door frames with a built-in security screen door or burglar bar gate attached. Designed for maximum security.",
+    image: "/images/door-frame.png",
+    features: ["Security Gate Included", "Robust Welds", "Standard ND/NC Profiles"],
+  },
 ];
 
 export const testimonials: Testimonial[] = [
@@ -208,6 +224,18 @@ export const galleryImages: GalleryImage[] = [
     id: "12",
     src: "/images/new-gallery-4.jpg",
     alt: "Decorative metal door panel",
+    category: "Products",
+  },
+  {
+    id: "13",
+    src: "/images/window-frame.png",
+    alt: "Heavy duty steel window frame",
+    category: "Products",
+  },
+  {
+    id: "14",
+    src: "/images/door-frame.png",
+    alt: "Steel door frame with security gate",
     category: "Products",
   },
 ];

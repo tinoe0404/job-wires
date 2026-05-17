@@ -67,6 +67,8 @@ export default function Footer() {
                 "Barbed Wire",
                 "Razor Wire",
                 "Fencing Poles",
+                "Door Frames",
+                "Window Frames",
               ].map((product) => (
                 <li key={product}>
                   <Link
