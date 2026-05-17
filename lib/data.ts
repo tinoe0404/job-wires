@@ -256,4 +256,5 @@ export const companyInfo = {
   emails: ["info@joshwires.co.zw", "joshuamabunu@icloud.com"],
   address: "434 Miles Road Industrial Side, Victoria Falls, Zimbabwe",
   whatsapp: "263779975775",
+  tiktok: "https://www.tiktok.com/@joshwires1356?_r=1&_t=ZS-96RXv5DG2NB",
 };

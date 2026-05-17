@@ -111,6 +111,18 @@ export default function Footer() {
                   {companyInfo.address}
                 </span>
               </li>
+              {companyInfo.tiktok && (
+                <li>
+                  <a
+                    href={companyInfo.tiktok}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-muted)] text-base font-medium hover:text-[var(--color-accent)] transition-colors inline-block"
+                  >
+                    TikTok
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
